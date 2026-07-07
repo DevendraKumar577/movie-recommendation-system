@@ -150,21 +150,31 @@ margin-bottom:15px;
 
 .movie-card{
 
-background:linear-gradient(180deg,#111827,#1F2937);
+background:#111827;
 
 padding:16px;
 
 border-radius:18px;
 
-border:1px solid #374151;
+border:1px solid #2E3440;
 
-text-align:center;
+overflow:hidden;
+
+transition:.3s;
+
+box-shadow:0 8px 18px rgba(0,0,0,.18);
 
 margin-bottom:18px;
 
-transition:all .35s ease;
+}
 
-box-shadow:0 8px 18px rgba(0,0,0,.18);
+.movie-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 16px 30px rgba(37,99,235,.25);
+
+border:1px solid #3B82F6;
 
 }
 
@@ -180,29 +190,39 @@ border:1px solid #3B82F6;
 
 .movie-title{
 
+font-size:20px;
+
 font-weight:700;
-
-font-size:18px;
-
-margin-top:12px;
 
 color:white;
 
-line-height:1.35;
+text-align:center;
 
-min-height:48px;
+margin-top:14px;
+
+margin-bottom:10px;
 
 }
 
 .small-text{
 
-color:#D1D5DB;
+color:#E5E7EB;
 
 font-size:14px;
 
-margin-top:6px;
+text-align:left;
+
+padding-left:14px;
+
+margin-bottom:6px;
 
 }
+            
+.movie-info{
+
+padding:12px;
+
+}            
 
 .footer{
 
@@ -566,13 +586,21 @@ if recommend_button:
 
         with col:
 
-            st.markdown("<div class='movie-card'>", unsafe_allow_html=True)
-
             if details and details["poster"]:
-                st.image(details["poster"], width="stretch")
+                st.image(details["poster"], use_container_width=True)
 
             st.markdown(
-                f"<div class='movie-title'>{movie['title']}</div>",
+                f"""
+                <h4 style="
+                    text-align:center;
+                    margin-top:12px;
+                    margin-bottom:10px;
+                    min-height:55px;
+                    font-weight:700;
+                ">
+                    {movie['title']}
+                </h4>
+                """,
                 unsafe_allow_html=True
             )
 
@@ -581,36 +609,41 @@ if recommend_button:
                 rating = details.get("rating", "N/A")
 
                 release = details.get("release", "N/A")
-
                 year = release[:4] if release and release != "N/A" else "N/A"
 
                 runtime = details.get("runtime", "N/A")
-
                 genres = details.get("genres", "N/A")
 
                 st.markdown(
-                    f"<div class='small-text'>⭐ {rating}</div>",
+                    f"""
+                    <div style="
+                        background:#111827;
+                        color:white;
+                        padding:14px;
+                        border-radius:12px;
+                        margin-top:8px;
+                        border:1px solid #2E3440;
+                        min-height:155px;
+                    ">
+
+                    <p style="margin:6px 0;">⭐ <b>Rating:</b> {rating}</p>
+
+                    <p style="margin:6px 0;">📅 <b>Year:</b> {year}</p>
+
+                    <p style="margin:6px 0;">⏱ <b>Runtime:</b> {runtime} min</p>
+
+                    <p style="margin:6px 0;">🎭 <b>Genres:</b> {genres}</p>
+
+                    </div>
+                    """,
                     unsafe_allow_html=True
                 )
 
-                st.markdown(
-                    f"<div class='small-text'>📅 {year}</div>",
-                    unsafe_allow_html=True
-                )
+# --------------------------------------------------
+# RECOMMENDATION SUMMARY
+# --------------------------------------------------
 
-                st.markdown(
-                    f"<div class='small-text'>⏱ {runtime} min</div>",
-                    unsafe_allow_html=True
-                )
-
-                st.markdown(
-                    f"<div class='small-text'>🎭 {genres}</div>",
-                    unsafe_allow_html=True
-                )
-
-            st.markdown("</div>", unsafe_allow_html=True)
-
-            # --------------------------------------------------
+# --------------------------------------------------
 # RECOMMENDATION SUMMARY
 # --------------------------------------------------
 
@@ -618,19 +651,44 @@ if recommend_button:
 
     st.markdown("---")
 
-    st.subheader("🧠 Why These Movies?")
+    # Create 3 columns (left, center, right)
+    left, center, right = st.columns([1, 4, 1])
 
-    st.info(
-        """
-These recommendations are generated using a **Content-Based Recommendation System**.
+    with center:
 
-The model compares movies based on their metadata (tags) and calculates
-their similarity using **Cosine Similarity**.
+        st.markdown(
+            """
+            <h2 style="text-align:center; margin-bottom:18px;">
+            🧠 Why These Movies?
+            </h2>
+            """,
+            unsafe_allow_html=True
+        )
 
-Movies with similar genres, keywords, cast, crew and storyline are ranked
-and the top similar movies are displayed.
-"""
-    )
+        st.markdown(
+            """
+            <div style="
+                background:#EAF3FF;
+                padding:22px;
+                border-radius:12px;
+                text-align:center;
+                font-size:18px;
+                line-height:1.45;
+                color:#1F2937;
+            ">
+
+            These recommendations are generated using a
+            <b>Content-Based Recommendation System</b>.<br>
+
+            The model compares movies based on their metadata (tags) and calculates their similarity using
+            <b>Cosine Similarity</b>.<br>
+
+            Movies with similar genres, keywords, cast, crew and storyline are ranked and the top similar movies are displayed.
+
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
 
 # --------------------------------------------------

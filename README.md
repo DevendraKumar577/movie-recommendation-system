@@ -147,9 +147,3 @@ streamlit run app.py
 **Devendra Kumar**
 
 - GitHub: https://github.com/DevendraKumar577
-
----
-
-## ⭐ Support
-
-If you found this project useful, please consider giving this repository a **⭐ Star** on GitHub.

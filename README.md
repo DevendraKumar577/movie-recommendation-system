@@ -1,76 +1,50 @@
 # 🎬 Movie Recommendation System
 
-An interactive **Content-Based Movie Recommendation System** built using **Python, Scikit-learn, NLP, Streamlit, and the TMDB 5000 Movies Dataset**. The application recommends similar movies based on their metadata, including genres, cast, crew, keywords, and movie overview.
+An interactive **Content-Based Movie Recommendation System** built using **Machine Learning, Python, Scikit-learn, and Streamlit**. The application recommends movies similar to a user's selected movie by analyzing movie metadata such as genres, cast, crew, keywords, and overview using **CountVectorizer** and **Cosine Similarity**.
 
 ## 🌐 Live Demo
 
 🚀 **Try the App:**  
 https://movie-recommendation-system-6jwfxbvkappk3wfqj27z3v.streamlit.app/
 
+## 📌 Project Overview
+
+This project implements a **Content-Based Recommendation Engine** that suggests movies with similar characteristics based on their metadata. Movie features such as genres, keywords, cast, crew, and overview are combined into a single feature vector using **CountVectorizer**, and movie similarity is calculated using **Cosine Similarity**.
+
+The application is built with **Streamlit** and integrates the **TMDB API** to display movie posters, ratings, release year, runtime, and genres for each recommendation.
+
 ---
 
-## 📌 Features
+## ✨ Features
 
 - 🎥 Recommend top 5 similar movies instantly
-- 🖼️ Fetch movie posters dynamically using the TMDB API
-- ⭐ Display IMDb-style ratings
+- 🖼️ Fetch and display movie posters using the TMDB API
+- ⭐ Display movie ratings
 - 📅 Show release year
 - ⏱️ Display movie runtime
-- 🎭 Show genres for every recommendation
-- 🎨 Modern and responsive Streamlit UI
-- 🧠 Content-Based Recommendation using Cosine Similarity
-- ⚡ Fast recommendation generation using precomputed similarity matrix
+- 🎭 Show movie genres
+- ⚡ Fast recommendation generation using a precomputed similarity matrix
+- 🎨 Modern and responsive Streamlit interface
+- ☁️ Deployed on Streamlit Cloud
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Python**
-- **Streamlit**
-- **Pandas**
-- **NumPy**
-- **Scikit-learn**
-- **NLTK (NLP preprocessing)**
-- **TMDB API**
-- **Pickle**
-- **Git & GitHub**
+- Python
+- Pandas
+- NumPy
+- Scikit-learn
+- Streamlit
+- Requests
+- Pickle
+- TMDB API
+- CountVectorizer
+- Cosine Similarity
 
 ---
 
-## 📂 Dataset
-
-This project uses the **TMDB 5000 Movies Dataset**, containing movie metadata such as:
-
-- Movie Title
-- Genres
-- Keywords
-- Cast
-- Crew
-- Overview
-
-The recommendation engine combines these features into a single text representation and computes similarity between movies using **Cosine Similarity**. Content-based recommender systems compare movie attributes rather than relying on user ratings, making them suitable for recommending similar items based on metadata. :contentReference[oaicite:0]{index=0}
-
----
-
-## ⚙️ How It Works
-
-1. Load the TMDB dataset.
-2. Clean and preprocess movie metadata.
-3. Merge important features:
-   - Genres
-   - Keywords
-   - Cast
-   - Crew
-   - Overview
-4. Apply NLP preprocessing.
-5. Convert text into numerical vectors.
-6. Compute the Cosine Similarity matrix.
-7. Recommend the five most similar movies.
-8. Fetch posters and movie information using the TMDB API.
-
----
-
-## 📁 Project Structure
+## 📂 Project Structure
 
 ```text
 movie-recommendation-system/
@@ -89,6 +63,35 @@ movie-recommendation-system/
 
 ---
 
+## ⚙️ How It Works
+
+1. Load the TMDB Movies and Credits datasets.
+2. Merge both datasets.
+3. Perform data cleaning and feature engineering.
+4. Combine genres, keywords, cast, crew, and overview into a single feature.
+5. Convert the combined text into numerical vectors using **CountVectorizer**.
+6. Compute **Cosine Similarity** between all movies.
+7. Recommend the top 5 most similar movies.
+8. Fetch movie posters and metadata dynamically using the **TMDB API**.
+
+---
+
+## 📊 Dataset
+
+This project uses the **TMDB 5000 Movies Dataset**, which contains metadata for approximately **5,000 movies**, including:
+
+- Movie Title
+- Genres
+- Keywords
+- Cast
+- Crew
+- Overview
+- Release Date
+- Ratings
+- Runtime
+
+---
+
 ## 🚀 Installation
 
 ### Clone the repository
@@ -97,7 +100,7 @@ movie-recommendation-system/
 git clone https://github.com/DevendraKumar577/movie-recommendation-system.git
 ```
 
-### Move to project directory
+### Navigate to the project directory
 
 ```bash
 cd movie-recommendation-system
@@ -117,47 +120,35 @@ streamlit run app.py
 
 ---
 
-## 📸 Application Preview
+## 💻 Usage
 
-### 🏠 Home Page
-
-> Add screenshot here
-
-```
-images/home.png
-```
-
-### 🎬 Recommendations
-
-> Add screenshot here
-
-```
-images/recommendation.png
-```
+1. Open the web application.
+2. Select your favourite movie.
+3. Click **Recommend Movies**.
+4. Instantly receive five similar movie recommendations with posters and additional movie information.
 
 ---
 
-## 💡 Future Improvements
+## 🚀 Project Highlights
 
-- User login system
-- Collaborative Filtering
+- Developed a Content-Based Movie Recommendation System using Machine Learning.
+- Implemented a recommendation engine using **CountVectorizer** and **Cosine Similarity**.
+- Integrated the **TMDB API** to fetch movie posters and metadata.
+- Designed a modern, interactive, and responsive Streamlit interface.
+- Successfully deployed the application on **Streamlit Cloud**.
+
+---
+
+## 📈 Future Improvements
+
 - Hybrid Recommendation System
-- Personalized recommendations
-- Search autocomplete
-- Movie trailers integration
-- Watchlist feature
-- Recommendation explanation using AI
-
----
-
-## 📈 Project Highlights
-
-- Built a Content-Based Recommendation Engine
-- Implemented NLP-based feature engineering
-- Used Cosine Similarity for movie matching
-- Integrated TMDB API for real-time movie information
-- Developed an interactive Streamlit web application
-- Deployed on Streamlit Cloud
+- Collaborative Filtering
+- Personalized User Recommendations
+- Movie Search Autocomplete
+- Genre-based Filtering
+- User Authentication
+- Watchlist Feature
+- Recently Viewed Movies
 
 ---
 
@@ -166,10 +157,15 @@ images/recommendation.png
 **Devendra Kumar**
 
 - GitHub: https://github.com/DevendraKumar577
-- LinkedIn: *(Add your LinkedIn profile here)*
 
 ---
 
-## ⭐ If you found this project useful
+## 🌐 Live Application
 
-Please consider giving this repository a **Star ⭐**.
+https://movie-recommendation-system-6jwfxbvkappk3wfqj27z3v.streamlit.app/
+
+---
+
+## ⭐ Support
+
+If you found this project useful, please consider giving this repository a **⭐ Star** on GitHub.

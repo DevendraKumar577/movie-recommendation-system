@@ -1,48 +1,76 @@
 # 🎬 Movie Recommendation System
 
-An interactive **Content-Based Movie Recommendation System** built using **Machine Learning, Python, Scikit-Learn, and Streamlit**. The application recommends movies similar to a user's selected movie by analyzing movie metadata such as genres, cast, crew, keywords, and overview using Natural Language Processing (NLP) techniques.
+An interactive **Content-Based Movie Recommendation System** built using **Python, Scikit-learn, NLP, Streamlit, and the TMDB 5000 Movies Dataset**. The application recommends similar movies based on their metadata, including genres, cast, crew, keywords, and movie overview.
 
 ## 🌐 Live Demo
 
-**🔗 Streamlit App:** https://movie-recommendation-system-6jwfxbvkappk3wfqj27z3v.streamlit.app/
+🚀 **Try the App:**  
+https://movie-recommendation-system-6jwfxbvkappk3wfqj27z3v.streamlit.app/
 
 ---
 
-## 📌 Project Overview
+## 📌 Features
 
-This project uses a **Content-Based Recommendation Engine** to suggest movies with similar characteristics. It processes movie metadata, converts textual features into numerical vectors using **CountVectorizer**, and computes similarity scores using **Cosine Similarity**.
-
-The web application is developed using **Streamlit**, allowing users to select any movie and instantly receive five similar movie recommendations along with their posters fetched from the TMDB API.
-
----
-
-## ✨ Features
-
-- 🎥 Recommend 5 similar movies instantly
-- 🖼️ Display movie posters using TMDB API
-- ⚡ Fast recommendation engine using Cosine Similarity
-- 🎨 Interactive Streamlit UI
-- 📱 Responsive design
-- 🤖 Machine Learning powered recommendation engine
-- ☁️ Deployed on Streamlit Cloud
+- 🎥 Recommend top 5 similar movies instantly
+- 🖼️ Fetch movie posters dynamically using the TMDB API
+- ⭐ Display IMDb-style ratings
+- 📅 Show release year
+- ⏱️ Display movie runtime
+- 🎭 Show genres for every recommendation
+- 🎨 Modern and responsive Streamlit UI
+- 🧠 Content-Based Recommendation using Cosine Similarity
+- ⚡ Fast recommendation generation using precomputed similarity matrix
 
 ---
 
 ## 🛠️ Tech Stack
 
-- Python
-- Pandas
-- NumPy
-- Scikit-Learn
-- Streamlit
-- Pickle
-- TMDB API
-- CountVectorizer
-- Cosine Similarity
+- **Python**
+- **Streamlit**
+- **Pandas**
+- **NumPy**
+- **Scikit-learn**
+- **NLTK (NLP preprocessing)**
+- **TMDB API**
+- **Pickle**
+- **Git & GitHub**
 
 ---
 
-## 📂 Project Structure
+## 📂 Dataset
+
+This project uses the **TMDB 5000 Movies Dataset**, containing movie metadata such as:
+
+- Movie Title
+- Genres
+- Keywords
+- Cast
+- Crew
+- Overview
+
+The recommendation engine combines these features into a single text representation and computes similarity between movies using **Cosine Similarity**. Content-based recommender systems compare movie attributes rather than relying on user ratings, making them suitable for recommending similar items based on metadata. :contentReference[oaicite:0]{index=0}
+
+---
+
+## ⚙️ How It Works
+
+1. Load the TMDB dataset.
+2. Clean and preprocess movie metadata.
+3. Merge important features:
+   - Genres
+   - Keywords
+   - Cast
+   - Crew
+   - Overview
+4. Apply NLP preprocessing.
+5. Convert text into numerical vectors.
+6. Compute the Cosine Similarity matrix.
+7. Recommend the five most similar movies.
+8. Fetch posters and movie information using the TMDB API.
+
+---
+
+## 📁 Project Structure
 
 ```text
 movie-recommendation-system/
@@ -51,55 +79,37 @@ movie-recommendation-system/
 ├── Movie_Recommendation.ipynb
 ├── movie_list.pkl
 ├── similarity.pkl
-├── requirements.txt
-├── runtime.txt
 ├── tmdb_5000_movies.csv
 ├── tmdb_5000_credits.csv
-└── README.md
+├── requirements.txt
+├── runtime.txt
+├── README.md
+└── .gitignore
 ```
-
----
-
-## ⚙️ How It Works
-
-1. Load the TMDB movie dataset.
-2. Merge movie and credits datasets.
-3. Perform feature engineering.
-4. Combine genres, keywords, cast, crew, and overview into a single text feature.
-5. Convert text into vectors using CountVectorizer.
-6. Compute Cosine Similarity between movies.
-7. Recommend the top 5 most similar movies.
-8. Fetch movie posters using the TMDB API.
-
----
-
-## 📊 Dataset
-
-The project is built using the **TMDB 5000 Movie Dataset**, containing metadata for approximately **5,000 movies**, including genres, cast, crew, keywords, overviews, budgets, revenues, and ratings. :contentReference[oaicite:0]{index=0}
 
 ---
 
 ## 🚀 Installation
 
-Clone the repository
+### Clone the repository
 
 ```bash
 git clone https://github.com/DevendraKumar577/movie-recommendation-system.git
 ```
 
-Move into the project directory
+### Move to project directory
 
 ```bash
 cd movie-recommendation-system
 ```
 
-Install dependencies
+### Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Run the application
+### Run the application
 
 ```bash
 streamlit run app.py
@@ -107,24 +117,47 @@ streamlit run app.py
 
 ---
 
-## 💻 Demo
+## 📸 Application Preview
 
-1. Select your favourite movie.
-2. Click **Recommend Movies**.
-3. Get five similar movie recommendations with posters instantly.
+### 🏠 Home Page
+
+> Add screenshot here
+
+```
+images/home.png
+```
+
+### 🎬 Recommendations
+
+> Add screenshot here
+
+```
+images/recommendation.png
+```
 
 ---
 
-## 📈 Future Improvements
+## 💡 Future Improvements
 
-- Hybrid Recommendation System
+- User login system
 - Collaborative Filtering
-- Personalized User Recommendations
-- Movie Search Autocomplete
-- Genre-wise Filtering
-- Movie Ratings Integration
-- User Authentication
-- Watchlist Feature
+- Hybrid Recommendation System
+- Personalized recommendations
+- Search autocomplete
+- Movie trailers integration
+- Watchlist feature
+- Recommendation explanation using AI
+
+---
+
+## 📈 Project Highlights
+
+- Built a Content-Based Recommendation Engine
+- Implemented NLP-based feature engineering
+- Used Cosine Similarity for movie matching
+- Integrated TMDB API for real-time movie information
+- Developed an interactive Streamlit web application
+- Deployed on Streamlit Cloud
 
 ---
 
@@ -133,9 +166,10 @@ streamlit run app.py
 **Devendra Kumar**
 
 - GitHub: https://github.com/DevendraKumar577
+- LinkedIn: *(Add your LinkedIn profile here)*
 
 ---
 
 ## ⭐ If you found this project useful
 
-Please consider giving this repository a ⭐ on GitHub.
+Please consider giving this repository a **Star ⭐**.

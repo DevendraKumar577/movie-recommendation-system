@@ -716,5 +716,3 @@ Developed by <b>Devendra Kumar</b>
 """,
     unsafe_allow_html=True
 )
-
-# UI redesigned
